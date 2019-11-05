@@ -1,0 +1,10 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: Alumnos
+  datasource:
+    data-username: sa
+    data-password:
+    name: H2
