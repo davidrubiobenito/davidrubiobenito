@@ -1,18 +1,22 @@
 package es.babel.security.test.securitytest.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
 
+@Component
 @ConfigurationProperties("custom.security")
 public class CustomSecurityProperties {
-    private String name;
-    private String password;
 
-    public String getName() {
-        return name;
+    private String username;
+    private String password;
+    private String role;
+
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -21,5 +25,13 @@ public class CustomSecurityProperties {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

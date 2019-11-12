@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head>
         <meta charset="UTF-8">
-        <title>Welcome</title>
+        <title>Title</title>
     </head>
     <body>
         <h1>Bienvenidos</h1>
-        <p>Haz clic <a href="@{hello}">aquí</a> </p>
+        <p>Haz click <a th:href="@{/hello}">aquí</a> para entrar</p>
     </body>
 </html>
