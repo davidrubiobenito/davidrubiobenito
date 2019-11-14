@@ -1,6 +1,7 @@
 package es.babel.curso.alumnos.jpatest.controllers;
 
 import es.babel.curso.alumnos.jpatest.repositories.entities.Alumno;
+import es.babel.curso.alumnos.jpatest.restclient.PagosResource;
 import es.babel.curso.alumnos.jpatest.services.AlumnoService;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ public class AlumnoController {
 
     @Autowired
     private AlumnoService alumnoService;
+
+    @Autowired
+    PagosResource pagosRestClient;
 
     @ApiOperation(value = "LLamada para recuperar la lista de alumnos",
         produces = "application/json",
@@ -121,11 +125,25 @@ public class AlumnoController {
         return ResponseEntity.ok(alumnoService.deleteAlumno(idAlumno));
     }
 
-    /*
-    @GetMapping("/alumnos")
-    public ResponseEntity<List<Alumno>> getAlumnosByNombre(@RequestParam(name="nombre") String nombre){
-        return ResponseEntity.ok(alumnoService.getAlumnosByNombre(nombre));
+
+    /**
+     * Consumir cliente Rest con la libreia Feign
+     * @param idAlumno
+     * @return
+     */
+    @GetMapping("/alumnos/{id}/pagos")
+    public ResponseEntity<String> getPagosAlumnById(@PathVariable(name="id") Long idAlumno){
+        return ResponseEntity.ok(pagosRestClient.getPagosByIdAlumnos(idAlumno));
     }
-    */
+
+    /**
+     * Consumir cliente Rest con la libreia Feign
+     * @param idAlumno
+     * @return
+     */
+    @PostMapping("/alumnos/{id}/pagos")
+    public ResponseEntity<String> createPaymentCode(@PathVariable(name="id") Long idAlumno){
+        return ResponseEntity.ok(pagosRestClient.createPaymentCode(idAlumno));
+    }
 
 }

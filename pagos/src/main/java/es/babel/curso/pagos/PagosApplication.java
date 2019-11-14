@@ -1,4 +1,4 @@
-package es.babel.curso.alumnos.jpatest;
+package es.babel.curso.pagos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableFeignClients
-public class JpatestApplication {
+public class PagosApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JpatestApplication.class, args);
+		SpringApplication.run(PagosApplication.class, args);
 	}
 
 }
